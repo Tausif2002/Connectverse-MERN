@@ -65,7 +65,7 @@ exports.register = async (req, res)=>{
         const verificationToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         // Send verification email
-        const verificationLink = `http://localhost:5173/verify-email?token=${verificationToken}`;
+        const verificationLink = `https://connectverse-mern.vercel.app/verify-email?token=${verificationToken}`;
         await sendVerificationEmail(email, verificationLink);
 
         res.status(201).json({ success:true, message: 'Signup successful! Please check your email to verify your account.' });
@@ -152,7 +152,7 @@ exports.resendVerificationMail = async (req, res)=>{
       const verificationToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
   
       // Send verification email
-      const verificationLink = `http://localhost:5173/verify-email?token=${verificationToken}`;
+      const verificationLink = `https://connectverse-mern.vercel.app/verify-email?token=${verificationToken}`;
       await sendVerificationEmail(email, verificationLink);
   
       res.status(200).json({ message: 'Verification email sent successfully' });
@@ -170,7 +170,7 @@ exports.forgotPassword = async (req, res)=>{
       if (!user) return res.status(400).json({ message: 'User not found with this Email' });
       // Generate reset token
       const resetToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '10m' });
-      const resetLink  = `http://localhost:5173/reset-password?token=${resetToken}`
+      const resetLink  = `https://connectverse-mern.vercel.app/reset-password?token=${resetToken}`
       //send reset link
       await sendResetEmail(email, resetLink);
       res.status(200).json({ message: 'Paasword reset link sent to your email' });
