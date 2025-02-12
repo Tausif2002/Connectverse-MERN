@@ -17,7 +17,7 @@ const VerifyEmail = () => {
   useEffect(() => {
     const verifyEmail = async () => {
       try {
-        const response = await axios.post('http://localhost:5000/api/auth/verify-email', { token });
+        const response = await axios.post('https://connectverse-mern.onrender.com/api/auth/verify-email', { token });
         if (response.status === 200) {
           toast.success(response.data.message);
           setIsVerified(true);

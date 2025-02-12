@@ -45,7 +45,7 @@ const Signup = () => {
       if (name) formData.append('name', name); // Optional field
       if (profilePicture) formData.append('profilePicture', profilePicture); // Optional field
 
-      const response = await axios.post('http://192.168.1.101:5000/api/auth/register', formData, {
+      const response = await axios.post('https://connectverse-mern.onrender.com/api/auth/register', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

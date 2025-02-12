@@ -19,7 +19,7 @@ const ResetPassword = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/reset-password', { token, newPassword });
+      const response = await axios.post('https://connectverse-mern.onrender.com/api/auth/reset-password', { token, newPassword });
       if (response.status === 200) {
         toast.success(response.data.message);
         setTimeout(() => navigate('/login'), 3000); // Redirect to login after 3 seconds
