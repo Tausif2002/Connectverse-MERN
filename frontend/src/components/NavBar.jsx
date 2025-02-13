@@ -6,8 +6,10 @@ const NavBar = () => {
   return (
     <nav className="p-4 flex justify-between items-center">
         <div className="flex items-center">
+          <Link to={'/'}>
           <FaMusic className="text-3xl mr-2" />
           <h1 className="text-2xl font-bold">MelodyVerse</h1>
+          </Link>
         </div>
         <div className="flex space-x-4">
           {isLoggedIn ? (
