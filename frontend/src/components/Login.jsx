@@ -45,7 +45,7 @@ const Login = () => {
 
   useEffect(()=>{
     async function fetchData(){
-      const response = await axios.post('https://rocketdelivery.store/customer/settings?is_web_setting=1');
+      const response = await axios.get('https://rocketdelivery.store/customer/settings?is_web_setting=1');
       console.log(response)
     }
 
@@ -56,7 +56,7 @@ const Login = () => {
   const handleResendVerificationEmail = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get('https://connectverse-mern.onrender.com/api/auth/resend-verification-email', { email });
+      const response = await axios.post('https://connectverse-mern.onrender.com/api/auth/resend-verification-email', { email });
       toast.success(response.data.message);
       setShowResendButton(false);
     } catch (err) {
