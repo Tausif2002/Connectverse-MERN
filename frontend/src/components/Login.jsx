@@ -56,7 +56,7 @@ const Login = () => {
   const handleResendVerificationEmail = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post('https://connectverse-mern.onrender.com/api/auth/resend-verification-email', { email });
+      const response = await axios.get('https://connectverse-mern.onrender.com/api/auth/resend-verification-email', { email });
       toast.success(response.data.message);
       setShowResendButton(false);
     } catch (err) {
